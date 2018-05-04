@@ -1,7 +1,9 @@
 var path = require('path');
 
-var pcBaseEntryDir = '../static_guojiang_tv/src/pc/v4/';
-var mobileBaseEntryDir = '../static_guojiang_tv/src/mobile/v2/';
+var basePath = 'xingguang/';
+
+var pcBaseEntryDir = '../'+ basePath +'static_guojiang_tv/src/pc/v4/';
+var mobileBaseEntryDir = '../'+ basePath +'static_guojiang_tv/src/mobile/v2/';
 
 var baseEntryDir = process.env.PLATFORM == 'pc' ? pcBaseEntryDir : mobileBaseEntryDir;
 

@@ -34,17 +34,19 @@ var entryIgnore = require('./entryignore.json');
 
 //console.log('entryignore:', entryIgnore);
 
+var basePath = 'xingguang/';
+
 if(isPc){
 	//pc版目录配置
 	console.log('***********************PC编译*************************');
 	
-	var baseEntryDir = './static_guojiang_tv/src/pc/v4/';
+	var baseEntryDir = './'+ basePath +'static_guojiang_tv/src/pc/v4/';
 	var entryDir = baseEntryDir + '**/*.js';
-	var outDir = path.resolve(__dirname, './static_guojiang_tv/pc/v4');
+	var outDir = path.resolve(__dirname, './'+ basePath +'static_guojiang_tv/pc/v4');
 	var outPublicDir = 'http://static.guojiang.tv/pc/v4/';
-	var basePageDir = 'html/pc';
-	var basePageEntry = './'+basePageDir+'/';
-	var browserSyncBaseDir = './'+basePageDir+'/dist';
+	var basePageDir = basePath +'html/pc';
+	var basePageEntry = './'+ basePageDir +'/';
+	var browserSyncBaseDir = './'+ basePageDir +'/dist';
 	//clean folder
 	var cleanFolder = [
 		//path.resolve(__dirname, './html/pc/dist'), 
@@ -52,7 +54,7 @@ if(isPc){
 		'css'
 	];
 	var cleanOptions = {
-		root: path.resolve(__dirname, './static_guojiang_tv/pc/v4'),
+		root: path.resolve(__dirname, './'+ basePath +'static_guojiang_tv/pc/v4'),
 		exclude: [
 			'lib'
 		]
@@ -64,11 +66,11 @@ if(isPc){
 	//触屏版目录配置
 	console.log('***********************触屏版编译*************************');
 
-	var baseEntryDir = './static_guojiang_tv/src/mobile/v2/';
+	var baseEntryDir = './'+ basePath +'static_guojiang_tv/src/mobile/v2/';
 	var entryDir = baseEntryDir + '**/*.js';
-	var outDir = path.resolve(__dirname, './static_guojiang_tv/mobile/v2');
+	var outDir = path.resolve(__dirname, './'+ basePath +'static_guojiang_tv/mobile/v2');
 	var outPublicDir = 'http://static.guojiang.tv/mobile/v2/';
-	var basePageDir = 'html/mobile';
+	var basePageDir = basePath +'html/mobile';
 	var basePageEntry = './'+basePageDir+'/';
 	var browserSyncBaseDir = './'+basePageDir+'/dist';
 	//clean folder
@@ -78,7 +80,7 @@ if(isPc){
 		'css'
 	];
 	var cleanOptions = {
-		root: path.resolve(__dirname, './static_guojiang_tv/mobile/v2'),
+		root: path.resolve(__dirname, './'+ basePath +'static_guojiang_tv/mobile/v2'),
 		exclude: [
 			'lib'
 		]

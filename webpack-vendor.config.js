@@ -15,20 +15,22 @@ var isPc = process.env.PLATFORM == 'pc' ? true : false; //是否是pc编译
 var postcssConfigDir = './webpack-config/postcss.config.js';
 var resolveConfigDir = './webpack-config/resolve.config.js';
 
+var basePath = 'xingguang/';
+
 if(isPc){
 	//PC目录配置
-	var baseEntryDir = './static_guojiang_tv/pc/v4/';
+	var baseEntryDir = './'+ basePath +'static_guojiang_tv/pc/v4/';
 	var entryDir = baseEntryDir + '**/*.js';
-	var outDir = path.resolve(__dirname, './static_guojiang_tv/pc/v4');
+	var outDir = path.resolve(__dirname, './'+ basePath +'static_guojiang_tv/pc/v4');
 	var outPublicDir = 'http://static.guojiang.tv/pc/v4/';	
 
 	var dll_manifest_name = 'dll_pc';
 	var vendor_manifest_name = 'vendor_pc';
 }else{
 	//触屏目录配置
-	var baseEntryDir = './static_guojiang_tv/mobile/v2/';
+	var baseEntryDir = './'+ basePath +'static_guojiang_tv/mobile/v2/';
 	var entryDir = baseEntryDir + '**/*.js';
-	var outDir = path.resolve(__dirname, './static_guojiang_tv/mobile/v2');
+	var outDir = path.resolve(__dirname, './'+ basePath +'static_guojiang_tv/mobile/v2');
 	var outPublicDir = 'http://static.guojiang.tv/mobile/v2/';
 
 	var dll_manifest_name = 'dll';
