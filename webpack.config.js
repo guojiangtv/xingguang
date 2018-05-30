@@ -43,7 +43,7 @@ if(isPc){
 	var baseEntryDir = './'+ basePath +'static_guojiang_tv/src/pc/v4/';
 	var entryDir = baseEntryDir + '**/*.js';
 	var outDir = path.resolve(__dirname, './'+ basePath +'static_guojiang_tv/pc/v4');
-	var outPublicDir = 'http://static.guojiang.tv/pc/v4/';
+	var outPublicDir = '//static.guojiang.tv/pc/v4/';
 	var basePageDir = basePath +'html/pc';
 	var basePageEntry = './'+ basePageDir +'/';
 	var browserSyncBaseDir = './'+ basePageDir +'/dist';
@@ -69,7 +69,7 @@ if(isPc){
 	var baseEntryDir = './'+ basePath +'static_guojiang_tv/src/mobile/v2/';
 	var entryDir = baseEntryDir + '**/*.js';
 	var outDir = path.resolve(__dirname, './'+ basePath +'static_guojiang_tv/mobile/v2');
-	var outPublicDir = 'http://static.guojiang.tv/mobile/v2/';
+	var outPublicDir = '//static.guojiang.tv/mobile/v2/';
 	var basePageDir = basePath +'html/mobile';
 	var basePageEntry = './'+basePageDir+'/';
 	var browserSyncBaseDir = './'+basePageDir+'/dist';
