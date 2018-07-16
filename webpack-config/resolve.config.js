@@ -18,6 +18,7 @@ module.exports = {
 		'rsa': path.resolve(__dirname, baseEntryDir + 'js/lib/rsa.js'),
 		'common': path.resolve(__dirname, baseEntryDir + 'js/common/common.js'),
 		'wxShare': path.resolve(__dirname, baseEntryDir + 'js/common/wxShare.js'),
+		'report': path.resolve(__dirname, baseEntryDir + 'js/common/report.js'),
 		'guide': path.resolve(__dirname, baseEntryDir + 'js/common/guide.js'),
 		'user': path.resolve(__dirname, pcBaseEntryDir + 'js/common/user.js'),
 		'component': path.resolve(__dirname, pcBaseEntryDir + 'js/common/gj.component.js'),
