@@ -1,74 +1,33 @@
-## 星光直播前后端分离 - 活动脚手架
+## 星光直播前后端分离 - 活动脚手架 (基于星光项目运行)
 
 #### Prepare
 
-1. 全局安装yeoman
-
-   ```bash
-   npm i -g yo
-   ```
-
-2. clone本项目
-
-   ```bash
-   git clone [github-https-url]
-   ```
-
-3. 安装依赖
-
-   ```bash
-   npm i
-   ```
-
-4. generator-activity下配置自己的输出路径
-
-   ```javascript
-   module.exports = {
-       /* Base Path */
-       outputHtmlDir: 'Your html Path', // ejs 相关输出路径
-       outputStaticDir: 'Your static_guojiang_tv Path', // 静态文件 相关输出路径(js/less/imgs)
-   };
-   
-   // Relative Path除非星光项目目录结构发生变化，其他情况不需要改变
-   ```
-
-5. 链接
-
-   ```bash
-   npm link
-   ```
-
-#### 如果你希望在项目中本地化安装使用
+```js
+// 将 generators/package.json 中的依赖包配置 -> 拷贝添加到 项目根目录下的package.json中
+```
 
 ```js
-npm install -D yo
-
-// package.json 中添加
-// . 表示genarator项目目录
+//  项目根目录下的package.json中 中添加
+// ./generators 表示xingguang/genarator项目目录
 "scripts": {
-    "new": "node node_modules/yo/lib/cli.js ."
+    "new": "node node_modules/yo/lib/cli.js ./generators"
 }
+```
+
+安装依赖
+
+```bash
+yarn install
 ```
 
 #### Usage
 
-global
-
 ```bash
-yo activity
+yarn run new
 
 # ? 请输入项目名称  - forTest(对应的所有文件名均为forTest)
 # ? 请输入项目名称  - queen/forTest(二级目录项目) (支持多级目录)
 
-# ? 请选择模板 (PC Mobile PC&Mobile)
-```
-
-devDep
-
-```bash
-npm run new
-
-# ? 请输入项目名称 (支持多级目录)
 # ? 请选择模板 (PC Mobile PC&Mobile)
 ```
 
