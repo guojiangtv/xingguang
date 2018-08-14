@@ -42,6 +42,11 @@ module.exports = class extends Generators {
                 name: 'Mobile',
                 value: ['Mobile']
             }]
+        }, {
+            name: 'pTitle',
+            type: 'input',
+            message: '请输入页面标题',
+            default: 'pageTitle'
         }]).then((answers) => {
             this.log('Your Project Name (Dir & File name): ', answers.pName);
             this.log('Your Project Template Type: ', answers.pAssets);
@@ -194,7 +199,7 @@ module.exports = class extends Generators {
             this.templatePath(path.resolve(this.sourceRoot(), './' + type.toLowerCase() + '/index.ejs' )),
             paths['ejs'],
             {
-                imgPath: path.relative(path.dirname(paths['ejs']), paths['imgs']).replace(/\\/g, "/"),
+                imgPath: path.relative(path.dirname(paths['ejs']), paths['imgs']).replace(/\\/g, '/'),
                 shareTitle: 'shareTitle',
                 shareContent: 'shareContent'
             }
@@ -216,7 +221,7 @@ module.exports = class extends Generators {
             {
                 layoutPath: layoutPath,
                 projectName: this.props.filename,
-                pageTitle: 'pageTitle',
+                pageTitle: this.props.pTitle,
             }
         );
 
@@ -230,7 +235,7 @@ module.exports = class extends Generators {
             paths['less'],
             {
                 projectName: this.props.pName,
-                imgPath: path.relative(path.dirname(paths['less']), paths['imgs']).replace(/\\/g, "/")
+                imgPath: path.relative(path.dirname(paths['less']), paths['imgs']).replace(/\\/g, '/')
             }
         );
 
@@ -239,7 +244,7 @@ module.exports = class extends Generators {
             this.templatePath(path.resolve(this.sourceRoot(), './' + type.toLowerCase() + '/scripts/main.js' )),
             paths['js'],
             {
-                stylePath: path.relative(path.dirname(paths['js']), paths['less']).replace(/\\/g, "/")
+                stylePath: path.relative(path.dirname(paths['js']), paths['less']).replace(/\\/g, '/')
             }
         );
     }
