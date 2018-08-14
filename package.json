@@ -19,7 +19,7 @@
     "pc_watch": "export PLATFORM=pc&&webpack --progress --watch",
     "pc_build": "export PLATFORM=pc&&webpack --hide-modules",
     "browser": "browser-sync start --server --files '**/*.*'",
-    "activity": "node node_modules/yo/lib/cli.js ./generators"
+    "new": "node node_modules/yo/lib/cli.js ./generators"
   },
   "keywords": [],
   "author": "smy",

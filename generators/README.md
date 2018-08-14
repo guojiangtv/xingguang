@@ -7,7 +7,7 @@
 ```
 
 ```js
-//  项目根目录下的package.json中 中添加
+//  项目根目录下的package.json 中添加
 // ./generators 表示xingguang/genarator项目目录
 "scripts": {
     "new": "node node_modules/yo/lib/cli.js ./generators"

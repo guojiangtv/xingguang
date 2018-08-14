@@ -1,0 +1,48 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'new' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.3
+4 verbose run-script [ 'prenew', 'new', 'postnew' ]
+5 info lifecycle vue2webpack2@1.0.0~prenew: vue2webpack2@1.0.0
+6 silly lifecycle vue2webpack2@1.0.0~prenew: no script for prenew, continuing
+7 info lifecycle vue2webpack2@1.0.0~new: vue2webpack2@1.0.0
+8 verbose lifecycle vue2webpack2@1.0.0~new: unsafe-perm in lifecycle true
+9 verbose lifecycle vue2webpack2@1.0.0~new: PATH: C:\Users\Administrator\AppData\Roaming\nvm\v6.10.3\node_modules\npm\bin\node-gyp-bin;C:\Users\Administrator\Desktop\code\yeoman\xingguang\node_modules\.bin;D:\ProgramFiles\cmder\bin;D:\ProgramFiles\cmder\vendor\conemu-maximus5\ConEmu\Scripts;D:\ProgramFiles\cmder\vendor\conemu-maximus5;D:\ProgramFiles\cmder\vendor\conemu-maximus5\ConEmu;C:\Program Files\ImageMagick-7.0.8-Q16;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\ProgramFiles\Git\cmd;C:\Program Files\TortoiseSVN\bin;C:\Android;C:\Windows\System32;D:\ProgramFiles\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\ProgramFiles\Microsoft VS Code\bin;D:\ProgramFiles\cmder;C:\Users\Administrator\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\ProgramFiles\PHP;C:\Users\Administrator\Desktop\work\pro\nginx;D:\ProgramFiles\Fiddler;D:\ProgramFiles\Heroku\bin;D:\ProgramFiles\electron;C:\Users\Administrator\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Python26;D:\ProgramFiles\Git\mingw64;D:\ProgramFiles\Git\usr\bin
+10 verbose lifecycle vue2webpack2@1.0.0~new: CWD: C:\Users\Administrator\Desktop\code\yeoman\xingguang
+11 silly lifecycle vue2webpack2@1.0.0~new: Args: [ '/d /s /c', 'node node_modules/yo/lib/cli.js ./generators' ]
+12 silly lifecycle vue2webpack2@1.0.0~new: Returned: code: 1  signal: null
+13 info lifecycle vue2webpack2@1.0.0~new: Failed to exec new script
+14 verbose stack Error: vue2webpack2@1.0.0 new: `node node_modules/yo/lib/cli.js ./generators`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (C:\Users\Administrator\AppData\Roaming\nvm\v6.10.3\node_modules\npm\lib\utils\lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (C:\Users\Administrator\AppData\Roaming\nvm\v6.10.3\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:886:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid vue2webpack2@1.0.0
+16 verbose cwd C:\Users\Administrator\Desktop\code\yeoman\xingguang
+17 error Windows_NT 6.1.7601
+18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "new"
+19 error node v6.10.3
+20 error npm  v3.10.10
+21 error code ELIFECYCLE
+22 error vue2webpack2@1.0.0 new: `node node_modules/yo/lib/cli.js ./generators`
+22 error Exit status 1
+23 error Failed at the vue2webpack2@1.0.0 new script 'node node_modules/yo/lib/cli.js ./generators'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the vue2webpack2 package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     node node_modules/yo/lib/cli.js ./generators
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs vue2webpack2
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls vue2webpack2
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
