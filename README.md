@@ -7,6 +7,12 @@ npm：3.10.10
 
 node: 6.10.3 LTS稳定版
 
+## 2018-08-14
+增加yeoman generator, 自动生成新页面相关文件
+```
+yarn new
+```
+
 ## 2018-05-30
 去掉http:协议头，支持https
 
