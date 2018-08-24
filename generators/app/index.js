@@ -207,19 +207,18 @@ module.exports = class extends Generators {
 
         // 创建模板引擎文件 ejs_js
         let layoutPath = '';
-        let candenes = this.props.pName.split(path.sep);
-        let ci = 0;
-        while (ci < candenes.length) {
-            layoutPath += '../';
-            ci++;
+        if (type.toLowerCase() === 'mobile') {
+            layoutPath = path.relative(path.dirname(paths['ejs_js']), path.resolve(config.outputHtmlDir, config.outputHtmlMobileDir, './layouts/layout.js'));
         }
-        layoutPath += 'layouts/layout.js';
+        if (type.toLowerCase() === 'pc') {
+            layoutPath = path.relative(path.dirname(paths['ejs_js']), path.resolve(config.outputHtmlDir, config.outputHtmlPCDir, './layouts/layout.js'));
+        }
 
         this.fs.copyTpl(
             this.templatePath(path.resolve(this.sourceRoot(), './' + type.toLowerCase() + '/index.js' )),
             paths['ejs_js'],
             {
-                layoutPath: layoutPath,
+                layoutPath: layoutPath.replace(/\\/g, '/'),
                 projectName: this.props.filename,
                 pageTitle: this.props.pTitle,
             }
