@@ -42,6 +42,11 @@ module.exports = class extends Generators {
                 name: 'Mobile',
                 value: ['Mobile']
             }]
+        }, {
+            name: 'pTitle',
+            type: 'input',
+            message: '请输入页面标题',
+            default: 'pageTitle'
         }]).then((answers) => {
             this.log('Your Project Name (Dir & File name): ', answers.pName);
             this.log('Your Project Template Type: ', answers.pAssets);
@@ -194,7 +199,7 @@ module.exports = class extends Generators {
             this.templatePath(path.resolve(this.sourceRoot(), './' + type.toLowerCase() + '/index.ejs' )),
             paths['ejs'],
             {
-                imgPath: path.relative(path.dirname(paths['ejs']), paths['imgs']).replace(/\\/g, "/"),
+                imgPath: path.relative(path.dirname(paths['ejs']), paths['imgs']).replace(/\\/g, '/'),
                 shareTitle: 'shareTitle',
                 shareContent: 'shareContent'
             }
@@ -202,21 +207,20 @@ module.exports = class extends Generators {
 
         // 创建模板引擎文件 ejs_js
         let layoutPath = '';
-        let candenes = this.props.pName.split(path.sep);
-        let ci = 0;
-        while (ci < candenes.length) {
-            layoutPath += '../';
-            ci++;
+        if (type.toLowerCase() === 'mobile') {
+            layoutPath = path.relative(path.dirname(paths['ejs_js']), path.resolve(config.outputHtmlDir, config.outputHtmlMobileDir, './layouts/layout.js'));
         }
-        layoutPath += 'layouts/layout.js';
+        if (type.toLowerCase() === 'pc') {
+            layoutPath = path.relative(path.dirname(paths['ejs_js']), path.resolve(config.outputHtmlDir, config.outputHtmlPCDir, './layouts/layout.js'));
+        }
 
         this.fs.copyTpl(
             this.templatePath(path.resolve(this.sourceRoot(), './' + type.toLowerCase() + '/index.js' )),
             paths['ejs_js'],
             {
-                layoutPath: layoutPath,
+                layoutPath: layoutPath.replace(/\\/g, '/'),
                 projectName: this.props.filename,
-                pageTitle: 'pageTitle',
+                pageTitle: this.props.pTitle,
             }
         );
 
@@ -230,7 +234,7 @@ module.exports = class extends Generators {
             paths['less'],
             {
                 projectName: this.props.pName,
-                imgPath: path.relative(path.dirname(paths['less']), paths['imgs']).replace(/\\/g, "/")
+                imgPath: path.relative(path.dirname(paths['less']), paths['imgs']).replace(/\\/g, '/')
             }
         );
 
@@ -239,7 +243,7 @@ module.exports = class extends Generators {
             this.templatePath(path.resolve(this.sourceRoot(), './' + type.toLowerCase() + '/scripts/main.js' )),
             paths['js'],
             {
-                stylePath: path.relative(path.dirname(paths['js']), paths['less']).replace(/\\/g, "/")
+                stylePath: path.relative(path.dirname(paths['js']), paths['less']).replace(/\\/g, '/')
             }
         );
     }
