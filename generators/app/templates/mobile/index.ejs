@@ -1,12 +1,20 @@
 <div id="app" v-cloak>
     <!-- /* img path - "<%= imgPath %>" */ -->
+
+    <!-- 一个背景图章节 -->
+    <!-- <div class="xg-container section">
+        <div class="xg-content section-content">
+        </div>
+    </div> -->
+
+    <!-- <p class="copyright">本活动最终解释权归平台运营团队所有</p> -->
 </div>
 
 <script>
-    var gjShareParam = JSON.stringify({
-        title: '<%= shareTitle %>',
-        content: '<%= shareContent %>',
-        link: location.href,
-        imgLink: '${require("<%= imgPath %>/share.jpg")}'
-    });
+var gjShareParam = JSON.stringify({ // eslint-disable-line
+    title: '<%= shareTitle %>',
+    content: '<%= shareContent %>',
+    link: location.href,
+    imgLink: '${require("<%= imgPath %>/share.jpg")}' // eslint-disable-line
+})
 </script>
