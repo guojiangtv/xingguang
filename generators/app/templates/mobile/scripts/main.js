@@ -1,16 +1,16 @@
-'use strict';
+'use strict'
 
-import Vue from 'vue';
-import axios from 'axios';
-import common from 'common';
+import Vue from 'vue'
+import axios from 'axios'
+import common from 'common'
 
-import '<%= stylePath %>';
+import '<%= stylePath %>'
 
 new Vue({
     el: '#app',
     data: {},
-    methods: {
+    mounted: function () {
     },
-    mounted: function() {
+    methods: {
     }
-});
+})

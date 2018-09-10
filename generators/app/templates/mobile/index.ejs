@@ -3,10 +3,10 @@
 </div>
 
 <script>
-    var gjShareParam = JSON.stringify({
-        title: '<%= shareTitle %>',
-        content: '<%= shareContent %>',
-        link: location.href,
-        imgLink: '${require("<%= imgPath %>/share.jpg")}'
-    });
+var gjShareParam = JSON.stringify({ // eslint-disable-line
+    title: '<%= shareTitle %>',
+    content: '<%= shareContent %>',
+    link: location.href,
+    imgLink: '${require("<%= imgPath %>/share.jpg")}' // eslint-disable-line
+})
 </script>
