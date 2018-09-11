@@ -82,6 +82,7 @@
     "html-webpack-include-assets-plugin": "^1.0.2",
     "jquery": "^3.2.1",
     "promise-polyfill": "^6.1.0",
+    "uglify-js": "^3.4.9",
     "uglifyjs-webpack-plugin": "^1.1.8",
     "webpack": "^3.10.0"
   },
