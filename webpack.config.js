@@ -38,6 +38,7 @@ var entryIgnore = require('./entryignore.json')
 // console.log('entryignore:', entryIgnore);
 
 var basePath = 'xingguang/'
+var staticFileBase = path.resolve(__dirname, './' + basePath + 'static_guojiang_tv')
 
 if (isPc) {
     // pc版目录配置
@@ -65,7 +66,7 @@ if (isPc) {
 
     // 需要内嵌的资源
     var inlineSource = [
-        `/var/www/jenkins/temTest/xingguang/xingguang/static_guojiang_tv/src/pc/v4/js/component/monitor/globalMonitor.js`
+        `${staticFileBase}/src/pc/v4/js/component/monitor/globalMonitor.js`
     ]
 
     var dll_manifest_name = 'dll_pc'
@@ -96,8 +97,8 @@ if (isPc) {
 
     // 需要内嵌的资源
     var inlineSource = [
-        `/var/www/jenkins/temTest/xingguang/xingguang/static_guojiang_tv/src/mobile/v2/js/component/flexible.js`,
-        `/var/www/jenkins/temTest/xingguang/xingguang/static_guojiang_tv/src/mobile/v2/js/component/monitor/globalMonitor.js`
+        `${staticFileBase}/src/mobile/v2/js/component/flexible.js`,
+        `${staticFileBase}/src/mobile/v2/js/component/monitor/globalMonitor.js`
     ]
 
     var dll_manifest_name = 'dll'

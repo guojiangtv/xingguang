@@ -5,7 +5,7 @@ const UglifyJS = require('uglify-js')
  * @description 以内联或外联的方式插入资源到head内
  * js: [{
                 // path: [], // publicpath后接的资源相对路径,如'js/lib/common.js'，直接外联
-                path: [], // 文件访问的绝对路径, 如：g:/js/lib/common.js, 此时需要配置inject: inline
+                path: [], // 文件访问的绝对路径, 如：path.resolve(__dirname, './static/common.js'), 此时需要配置inject: inline
                 inject: 'inline', // 插入方式，不配置则外联资源，配置为inline则内联，此时path内需要是文件的绝对访问路径
                 minify: true //是否压缩，默认是压缩
 }]
