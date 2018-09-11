@@ -65,7 +65,7 @@ if (isPc) {
 
     // 需要内嵌的资源
     var inlineSource = [
-        `g:/guojiang/xingguang/xingguang/static_guojiang_tv/src/pc/v4/js/component/monitor/globalMonitor.js`
+        `/var/www/jenkins/temTest/xingguang/xingguang/static_guojiang_tv/src/pc/v4/js/component/monitor/globalMonitor.js`
     ]
 
     var dll_manifest_name = 'dll_pc'
@@ -96,8 +96,8 @@ if (isPc) {
 
     // 需要内嵌的资源
     var inlineSource = [
-        `g:/guojiang/xingguang/xingguang/static_guojiang_tv/src/mobile/v2/js/component/flexible.js`,
-        `g:/guojiang/xingguang/xingguang/static_guojiang_tv/src/mobile/v2/js/component/monitor/globalMonitor.js`
+        `/var/www/jenkins/temTest/xingguang/xingguang/static_guojiang_tv/src/mobile/v2/js/component/flexible.js`,
+        `/var/www/jenkins/temTest/xingguang/xingguang/static_guojiang_tv/src/mobile/v2/js/component/monitor/globalMonitor.js`
     ]
 
     var dll_manifest_name = 'dll'
