@@ -8,6 +8,16 @@ npm：5.6.0
 
 node: 8.11.3 LTS稳定版 
 
+## 2018-09-11
+1. flexible.js 和部分全局监控内嵌在head内
+2. report.js 从common移到component/monitor
+(页面增加统计方式不变，依然可以
+import report from 'report'
+report.stat('reportID')
+)
+3. 增加模块 uglify-js@3.4.9，需要本地安装
+4. 升级mobile下vue版本从2.2.0到2.5.17
+
 ## 2018-08-30
 增加node运行内存
 

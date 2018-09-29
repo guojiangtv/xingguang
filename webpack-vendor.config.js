@@ -129,9 +129,10 @@ module.exports = {
         // 服务器时间的更改会导致文件创建时间不准确
         new CleanWebpackPlugin([
             'js/lib/vendor.*.js',
+            'js/lib/vendor.*.js.map',
             'css/lib/vendor.*.css'
-        ],{
-            root: path.resolve(__dirname, './' + basePath + 'static_guojiang_tv/mobile/v2')
+        ], {
+            root: outDir
         }),
         new HashedChunkIdsPlugin(),
         new webpack.HashedModuleIdsPlugin(),
@@ -142,8 +143,8 @@ module.exports = {
 	    }),
 	    new webpack.DllReferencePlugin({
             context: __dirname, // 指定一个路径作为上下文环境，需要与DllPlugin的context参数保持一致，建议统一设置为项目根目录
-		  manifest: require('./manifest/' + dll_manifest_name + '_manifest.json'), // 指定manifest.json
-		  name: 'dll_library' // 当前Dll的所有内容都会存放在这个参数指定变量名的一个全局变量下，注意与DllPlugin的name参数保持一致
+            manifest: require('./manifest/' + dll_manifest_name + '_manifest.json'), // 指定manifest.json
+            name: 'dll_library' // 当前Dll的所有内容都会存放在这个参数指定变量名的一个全局变量下，注意与DllPlugin的name参数保持一致
         }),
         new ExtractTextPlugin('css/lib/[name].[contenthash:8].css'),
 

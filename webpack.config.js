@@ -3,21 +3,24 @@ var path = require('path')
 var webpack = require('webpack')
 
 const fs = require('fs')
-const crypto = require('crypto')
+// const crypto = require('crypto')
 
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin') // 抽离css
-var htmlWebpackPlugin = require('html-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
+// var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 var HashedChunkIdsPlugin = require('./webpack-config/hashedChunkIdsPlugin.js')
+var HtmlWebpackIncludeJsPlugin = require('./webpack-config/htmlWebpackIncludeJsPlugin.js')
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin')
 
 const HappyPack = require('happypack')
 const os = require('os')
-const HappyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length})
+const HappyThreadPool = HappyPack.ThreadPool({
+    size: os.cpus().length
+})
 
 // 生产与开发环境配置
 var glob = require('glob')
@@ -35,6 +38,7 @@ var entryIgnore = require('./entryignore.json')
 // console.log('entryignore:', entryIgnore);
 
 var basePath = 'xingguang/'
+var staticFileBase = path.resolve(__dirname, './' + basePath + 'static_guojiang_tv')
 
 if (isPc) {
     // pc版目录配置
@@ -54,11 +58,16 @@ if (isPc) {
         'css'
     ]
     var cleanOptions = {
-        root: path.resolve(__dirname, './' + basePath + 'static_guojiang_tv/pc/v4'),
+        root: outDir,
         exclude: [
             'lib'
         ]
     }
+
+    // 需要内嵌的资源
+    var inlineSource = [
+        `${staticFileBase}/src/pc/v4/js/component/monitor/globalMonitor.js`
+    ]
 
     var dll_manifest_name = 'dll_pc'
     var vendor_manifest_name = 'vendor_pc'
@@ -80,11 +89,17 @@ if (isPc) {
         'css'
     ]
     var cleanOptions = {
-        root: path.resolve(__dirname, './' + basePath + 'static_guojiang_tv/mobile/v2'),
+        root: outDir,
         exclude: [
             'lib'
         ]
     }
+
+    // 需要内嵌的资源
+    var inlineSource = [
+        `${staticFileBase}/src/mobile/v2/js/component/flexible.js`,
+        `${staticFileBase}/src/mobile/v2/js/component/monitor/globalMonitor.js`
+    ]
 
     var dll_manifest_name = 'dll'
     var vendor_manifest_name = 'vendor'
@@ -242,6 +257,13 @@ module.exports = {
         new HtmlWebpackIncludeAssetsPlugin({
             assets: [getLatestFile('css/lib/vendor.css')],
             append: false
+        }),
+        new HtmlWebpackIncludeJsPlugin({
+            js: [{
+                // path: [getLatestFile('js/lib/common.js')], // publicpath后接的资源相对路径，直接外联
+                path: inlineSource, // 文件访问的绝对路径, 如：g:/js/lib/common.js, 此时需要配置inject: inline
+                inject: 'inline' // 插入方式，内联
+            }]
         })
     ]
 }
@@ -283,7 +305,7 @@ for (var pathname in pages) {
         conf.chunks = ['manifest']
     }
 
-    module.exports.plugins.push(new htmlWebpackPlugin(conf))
+    module.exports.plugins.push(new HtmlWebpackPlugin(conf))
 }
 
 /** *** 获取文件列表(仅支持js和ejs文件)：输出正确的js和html路径 *****/
@@ -323,35 +345,37 @@ if (prod) {
     // module.exports.devtool = 'module-cheap-source-map'
     module.exports.plugins = module.exports.plugins.concat([
         new CleanWebpackPlugin(cleanFolder, cleanOptions),
-    	// 压缩css代码
+        // 压缩css代码
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css\.*(?!.*map)/g, // 注意不要写成 /\.css$/g
             cssProcessor: require('cssnano'),
             cssProcessorOptions: {
-                discardComments: {removeAll: true },
+                discardComments: {
+                    removeAll: true
+                },
                 // 避免 cssnano 重新计算 z-index
- 				safe: true,
- 				// cssnano通过移除注释、空白、重复规则、过时的浏览器前缀以及做出其他的优化来工作，一般能减少至少 50% 的大小
- 				// cssnano 集成了autoprefixer的功能。会使用到autoprefixer进行无关前缀的清理。默认不兼容ios8，会去掉部分webkit前缀，比如flex
- 				// 所以这里选择关闭，使用postcss的autoprefixer功能
- 				autoprefixer: false
+                safe: true,
+                // cssnano通过移除注释、空白、重复规则、过时的浏览器前缀以及做出其他的优化来工作，一般能减少至少 50% 的大小
+                // cssnano 集成了autoprefixer的功能。会使用到autoprefixer进行无关前缀的清理。默认不兼容ios8，会去掉部分webkit前缀，比如flex
+                // 所以这里选择关闭，使用postcss的autoprefixer功能
+                autoprefixer: false
             },
             canPrint: true
         }),
- 		// 压缩JS代码
+        // 压缩JS代码
         new UglifyJsPlugin({
             cache: true,
             parallel: true,
-		    uglifyOptions: {
-		      ie8: false,
-		      output: {
-		        comments: false,
-		        beautify: false
-		      },
-		      compress: true,
-		      warnings: false
-		    }
-		  })
+            uglifyOptions: {
+                ie8: false,
+                output: {
+                    comments: false,
+                    beautify: false
+                },
+                compress: true,
+                warnings: false
+            }
+        })
 
     ])
 } else {

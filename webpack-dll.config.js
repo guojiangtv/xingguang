@@ -121,8 +121,11 @@ module.exports = {
     plugins: [
         // 清除lib内旧版本的库文件，防止后面插入html时错乱
         // 服务器时间的更改会导致文件创建时间不准确
-        new CleanWebpackPlugin(['js/lib/dll.*.js'],{
-            root: path.resolve(__dirname, './' + basePath + 'static_guojiang_tv/mobile/v2')
+        new CleanWebpackPlugin([
+            'js/lib/dll.*.js',
+            'js/lib/dll.*.js.map'
+        ], {
+            root: outDir
         }),
         new HashedChunkIdsPlugin(),
         new webpack.HashedModuleIdsPlugin(),
