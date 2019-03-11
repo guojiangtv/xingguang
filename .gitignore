@@ -1,7 +1,7 @@
 node_modules/
 manifest/
 xingguang/
-!xignguang/.gitkeep
+!xingguang/.gitkeep
 mock/
 file.txt
 .log
