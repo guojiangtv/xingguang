@@ -1,5 +1,7 @@
 node_modules/
-nginx-1.12.0/logs/
 manifest/
-xingguang/
-.log
+/xingguang/*
+!/xingguang/.gitkeep
+mock/
+file.txt
+*.log
